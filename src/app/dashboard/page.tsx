@@ -2,14 +2,14 @@
 import { useState } from "react";
 import Irys from "@irys/sdk/build/cjs/common/irys";
 
-const getIrys = async () => {
-  // Initialize the Irys SDK
-  return new Irys({
-    network: "mainnet",
-    token: "your_token_here",
-    key: "your_key_here",
-  });
-};
+// const getIrys = async () => {
+//   // Initialize the Irys SDK
+//   return new Irys({
+//     network: "mainnet",
+//     token: "your_token_here",
+//     key: "your_key_here",
+//   });
+// };
 
 const Page = () => {
   const [data, setData] = useState("");
@@ -20,14 +20,14 @@ const Page = () => {
     if (!data) return;
 
     try {
-      const irys = await getIrys();
+    //   const irys = await getIrys();
 
       const blob = new Blob([data], { type: "text/plain" });
       const tags = [{ name: "application-id", value: "MyTextUpload" }];
 
-      const receipt = await irys.uploadFile(blob, { tags });
-      console.log(`Text uploaded ==> https://gateway.irys.xyz/${receipt.id}`);
-      setTransaction(`https://gateway.irys.xyz/${receipt.id}`);
+    //   const receipt = await irys.uploadFile(blob, { tags });
+    //   console.log(`Text uploaded ==> https://gateway.irys.xyz/${receipt.id}`);
+    //   setTransaction(`https://gateway.irys.xyz/${receipt.id}`);
     } catch (e) {
       console.log("Error uploading text", e);
     }
@@ -37,12 +37,12 @@ const Page = () => {
     if (!file) return;
 
     try {
-      const irys = await getIrys();
+    //   const irys = await getIrys();
       const tags = [{ name: "application-id", value: "MyFileUpload" }];
 
-      const receipt = await irys.uploadFile(file, { tags });
-      console.log(`File uploaded ==> https://gateway.irys.xyz/${receipt.id}`);
-      setTransaction(`https://gateway.irys.xyz/${receipt.id}`);
+    //   const receipt = await irys.uploadFile(file, { tags });
+    //   console.log(`File uploaded ==> https://gateway.irys.xyz/${receipt.id}`);
+    //   setTransaction(`https://gateway.irys.xyz/${receipt.id}`);
     } catch (e) {
       console.log("Error uploading file", e);
     }
